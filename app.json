@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "Shopping Fan",
+    "slug": "shopping_fan",
+    "privacy": "public",
+    "version": "1.7.1",
+    "orientation": "portrait",
+    "icon": "./assets/imgs/shopping_icon.png",
+    "splash": {
+      "image": "./assets/imgs/Shoppingp.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#06092F"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "web": {
+      "favicon": "./assets/imgs/shopping_icon.png"
+    }
+  }
+}
