@@ -15,6 +15,7 @@ import Pro from "../screens/Pro";
 import Profile from "../screens/Profile";
 import React from "react";
 import Login from "../screens/Login";
+import Register from "../screens/Register";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -150,6 +151,130 @@ function ProfileStack(props) {
   );
 }
 
+function RegisterStack(props) {
+  return(
+    <Stack.Navigator
+      screenOptions={{
+        mode: "card",
+        headerShown: "screen"
+      }}
+    >
+     <Stack.Screen
+      name="Register"
+      component={Register}
+      options={{
+        header: ({ navigation, scene }) => (
+          <Header
+            title=""
+            back
+            white
+            transparent
+            navigation={navigation}
+            scene={scene}
+          />
+        ),
+        headerTransparent: true,
+      }}
+    />
+    <Stack.Screen
+      name="Login"
+      component={Login}
+      options={{
+        header: ({ navigation, scene }) => (
+          <Header
+            title=""
+            back
+            white
+            transparent
+            navigation={navigation}
+            scene={scene}
+          />
+        ),
+        headerTransparent: true,
+      }}
+    />
+    <Stack.Screen
+      name="Home"
+      component={Home}
+      options={{
+        header: ({ navigation, scene }) => (
+          <Header
+            title="ShoppingFan"
+            search
+            options
+            navigation={navigation}
+            scene={scene}
+          />
+        ),
+        cardStyle: { backgroundColor: "#F8F9FE" },
+      }}
+    />
+    </Stack.Navigator>
+  );
+}
+
+function LoginStack(props) {
+  return(
+    <Stack.Navigator
+      screenOptions={{
+        mode: "card",
+        headerShown: "screen"
+      }}
+    >
+    <Stack.Screen
+      name="Login"
+      component={Login}
+      options={{
+        header: ({ navigation, scene }) => (
+          <Header
+            title=""
+            back
+            white
+            transparent
+            navigation={navigation}
+            scene={scene}
+          />
+        ),
+        headerTransparent: true,
+      }}
+    />
+    <Stack.Screen
+      name="Home"
+      component={Home}
+      options={{
+        header: ({ navigation, scene }) => (
+          <Header
+            title="ShoppingFan"
+            search
+            options
+            navigation={navigation}
+            scene={scene}
+          />
+        ),
+        cardStyle: { backgroundColor: "#F8F9FE" },
+      }}
+    />
+    <Stack.Screen
+      name="Register"
+      component={Register}
+      options={{
+        header: ({ navigation, scene }) => (
+          <Header
+            title=""
+            back
+            white
+            transparent
+            navigation={navigation}
+            scene={scene}
+          />
+        ),
+        headerTransparent: true,
+      }}
+    />
+    </Stack.Navigator>
+  );
+}
+
 function HomeStack(props) {
   return (
     <Stack.Navigator
@@ -164,9 +289,9 @@ function HomeStack(props) {
         options={{
           header: ({ navigation, scene }) => (
             <Header
-              title="Home"
-              search
-              options
+              title="ShoppingFan"
+              //search
+              //options
               navigation={navigation}
               scene={scene}
             />
@@ -210,7 +335,7 @@ export default function OnboardingStack(props) {
           headerTransparent: true,
         }}
       />
-      <Stack.Screen name="Login" component={AppStack} />
+      <Stack.Screen name="App" component={AppStack} />
     </Stack.Navigator>
   );
 }
@@ -246,6 +371,20 @@ function AppStack(props) {
       }}
       initialRouteName="Login"
     >
+      <Drawer.Screen
+        name="Login"
+        component={LoginStack}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Drawer.Screen
+        name="Register"
+        component={RegisterStack}
+        options={{
+          headerShown: false,
+        }}
+      />
       <Drawer.Screen
         name="Home"
         component={HomeStack}

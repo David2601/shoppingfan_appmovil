@@ -28,5 +28,10 @@ export default {
     BORDER: '#CAD1D7',
     WHITE: '#FFFFFF',
     BLACK: '#000000'
+  },
+  SIZES: {
+    BASE: 16,
+    FONT: 16,
+    OPACITY: 0.8,
   }
 };

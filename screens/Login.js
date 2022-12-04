@@ -1,216 +1,108 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  Image,
-  Dimensions,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-  Keyboard,
-} from 'react-native';
-import { Icon } from '@rneui/base';
-import { LinearGradient } from 'expo-linear-gradient';
+import { Alert, Dimensions, KeyboardAvoidingView, StyleSheet, Platform, Image } from 'react-native';
 
-export default function LoginScreen() {
-  return (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      <LinearGradient 
-        style={styles.container}
-        colors={['#018ABE', '#018ABE', '#000000']}
-        start={{ x: 6, y: -6}}
-        end={{ x: 2, y: 2 }}
-      >
-        <View style={styles.bigCircle}></View>
-        <View style={styles.smallCircle}></View>
-        <View style={styles.centerizedView}>
-          <View style={styles.authBox}>
-            <View style={styles.logoBox}>
-              <Icon
-                color='#24648C'
-                name='user-circle-o'
-                type='font-awesome'
-                size={100}
-              />
-            </View>
-            <Text style={styles.loginTitleText}>Iniciar Sesión</Text>
-            <View style={styles.hr}></View>
-            <View style={styles.inputBox}>
-              <Text style={styles.inputLabel}>Email</Text>
-              <TextInput
-                style={styles.input}
-                autoCapitalize={false}
-                keyboardType='email-address'
-                textContentType='emailAddress'
-                placeholder={'Correo Electrónico'}
-              />
-            </View>
-            <View style={styles.inputBox}>
-              <Text style={styles.inputLabel}>Contraseña</Text>
-              <TextInput
-                style={styles.input}
-                autoCapitalize={false}
-                secureTextEntry={true}
-                textContentType='password'
-              />
-            </View>
-            <TouchableOpacity>
-              <LinearGradient
-                colors={['#24648C', '#172040']}
-                style={styles.gradientButton}
-              >
-                <Text style={styles.loginButtonText}>Iniciar Sesión</Text>
-              </LinearGradient>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Text style={styles.forgotPasswordText}>¿Has olvidado tu contraseña?</Text>
-            </TouchableOpacity>
-            <Text style={styles.registerText}>
-              ¿No tienes una cuenta?
+// galio component
+import { Block, Button, Input, NavBar, Text } from 'galio-framework';
+import Images from "../constants/Images";
+import theme from '../constants/Theme';
+
+const { height, width } = Dimensions.get('window');
+
+class Login extends React.Component {
+  state = {
+    email: '-',
+    password: '-',
+  }
+
+  handleChange = (name, value) => {
+    this.setState({ [name]: value });
+  }
+
+  render() {
+    const { navigation } = this.props;
+    const { email, password } = this.state;
+
+    return (
+      <Block safe flex style={{ backgroundColor: theme.COLORS.WHITE }}>
+        <KeyboardAvoidingView style={styles.container} behavior="height" enabled>
+          <Block flex center style={{ marginTop: theme.SIZES.BASE * 1.875, marginBottom: height * 0.1 }}>
+            <Text muted center size={theme.SIZES.FONT * 0.875} style={{ paddingHorizontal: theme.SIZES.BASE * 2.3 }}>
+              Ingresa con los datos que ya has sido registrado con nosotros en web o en móvil
             </Text>
-            <TouchableOpacity
-              style={styles.registerButton}
-            >
-              <Text style={{
-                fontSize: 20,
-                fontWeight: '500',
-                textAlign: 'center'
-              }}>
-                Crear Cuenta
+            <Block row center space="between" style={{ marginVertical: theme.SIZES.BASE * 1.875 }}>
+              <Block center>
+                <Image source={Images.LogoLogin} style={styles.logo} />
+              </Block>
+            </Block>
+          </Block>
+
+          <Block flex={2} center space="evenly">
+            <Block flex={2}>
+              <Input
+                rounded
+                type="email-address"
+                placeholder="Email"
+                autoCapitalize="none"
+                color={theme.COLORS.BLUE2}
+                style={{ width: width * 0.9 }}
+                onChangeText={text => this.handleChange('email', text)}
+              />
+              <Input
+                rounded
+                password
+                viewPass
+                color={theme.COLORS.BLUE2}
+                placeholder="Password"
+                style={{ width: width * 0.9 }}
+                onChangeText={text => this.handleChange('password', text)}
+              />
+              <Text
+                color={theme.COLORS.BLUE}
+                size={theme.SIZES.FONT * 0.75}
+                onPress={() => Alert.alert('Not implemented')}
+                style={{ alignSelf: 'flex-end', lineHeight: theme.SIZES.FONT * 2 }}
+              >
+                Olvidaste tu contraseña?
               </Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </LinearGradient>
-    </TouchableWithoutFeedback>
-  );
+              <Block flex center>
+              <Button
+                round
+                color="#172040"
+                onPress={() => navigation.navigate('Home')}
+              >
+                Iniciar Sesión
+              </Button>
+              <Button color="transparent" shadowless onPress={() => navigation.navigate('Register')}>
+                <Text center color={theme.COLORS.BLUE} size={theme.SIZES.FONT * 0.85}>
+                  {"No tiene cuenta? Registrarse"}
+                </Text>
+              </Button>
+            </Block>
+            </Block>
+
+          </Block>
+        </KeyboardAvoidingView>
+      </Block>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    position: 'relative',
-  },
-  bigCircle: {
-    width: Dimensions.get('window').height * 0.7,
-    height: Dimensions.get('window').height * 0.7,
-    backgroundColor: '#fff',
-    borderRadius: 1000,
-    position: 'absolute',
-    right: Dimensions.get('window').width * 0.45,
-    top: -50,
-  },
-  smallCircle: {
-    width: Dimensions.get('window').height * 0.4,
-    height: Dimensions.get('window').height * 0.4,
-    backgroundColor: '#fff',
-    borderRadius: 1000,
-    position: 'absolute',
-    bottom: Dimensions.get('window').width * -0.3,
-    right: Dimensions.get('window').width * -0.4,
-  },
-  centerizedView: {
-    width: '100%',
-    top: '15%',
-    paddingTop: 35
-  },
-  authBox: {
-    width: '80%',
-    backgroundColor: '#fafafa',
-    borderRadius: 20,
-    alignSelf: 'center',
-    paddingHorizontal: 14,
-    paddingBottom: 30,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-  },
-  logoBox: {
-    width: 100,
-    height: 100,
-    backgroundColor: '#fff',
-    borderRadius: 1000,
-    alignSelf: 'center',
-    display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
-    top: -50,
-    marginBottom: -50,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 1.41,
-    elevation: 2,
+    justifyContent: 'space-around',
+    paddingTop: theme.SIZES.BASE * 0.3,
+    paddingHorizontal: theme.SIZES.BASE,
+    backgroundColor: theme.COLORS.WHITE,
   },
-  loginTitleText: {
-    fontSize: 26,
-    fontWeight: 'bold',
-    marginTop: 10,
-    textAlign: 'center'
-  },
-  hr: {
-    width: '100%',
-    height: 0.5,
-    backgroundColor: '#444',
-    marginTop: 6,
-  },
-  inputBox: {
-    marginTop: 10,
-  },
-  inputLabel: {
-    fontSize: 18,
-    marginBottom: 6,
-  },
-  input: {
-    width: '100%',
-    height: 40,
-    backgroundColor: '#dfe4ea',
-    borderRadius: 4,
-    paddingHorizontal: 10,
-  },
-  loginButton: {
-    backgroundColor: '#24648C',
-    marginTop: 10,
-    paddingVertical: 10,
-    borderRadius: 30,
-  },
-  loginButtonText: {
-    color: '#fff',
-    textAlign: 'center',
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  gradientButton: {
-    marginTop: 15,
-    paddingVertical: 12,
-    paddingHorizontal: 30,
-    borderRadius: 30
-  },
-  registerText: {
-    textAlign: 'center',
-    marginTop: 20,
-    fontSize: 16,
-    paddingBottom: 10
-  },
-  registerButton: {
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 30,
-    borderWidth: 3,
-    borderColor: '#24648C'
-  },
-  forgotPasswordText: {
-    textAlign: 'center',
-    marginTop: 12,
-    fontSize: 16,
+  logo: {
+    width: 120,
+    height: 220,
+    zIndex: 2,
+    position: 'relative',
+    marginTop: '-30%'
   },
 });
+
+export default Login;
