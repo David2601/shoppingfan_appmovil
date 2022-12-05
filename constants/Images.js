@@ -1,11 +1,9 @@
 // local imgs
 const Onboarding = require("../assets/imgs/back.png");
-const Logo = require("../assets/imgs/argon-logo.png");
+const Logo = require("../assets/imgs/ShoppingFan3.png")
 const LogoOnboarding = require("../assets/imgs/Shoppingp.png");
 const ProfileBackground = require("../assets/imgs/profile-screen-bg.png");
-const RegisterBackground = require("../assets/imgs/register-bg.png");
-const Pro = require("../assets/imgs/getPro-bg.png");
-const ArgonLogo = require("../assets/imgs/shopping_icon.png");
+const ShoppingLogo = require("../assets/imgs/shopping_icon.png");
 const iOSLogo = require("../assets/imgs/shopping_icon.png");
 const androidLogo = require("../assets/imgs/shopping_icon.png");
 const LogoLogin = require("../assets/imgs/shopping_icon.png");
@@ -29,16 +27,14 @@ const Products = {
 
 export default {
   Onboarding,
-  Logo,
   LogoOnboarding,
   ProfileBackground,
   ProfilePicture,
-  RegisterBackground,
   Viewed,
   Products,
-  Pro,
-  ArgonLogo,
+  ShoppingLogo,
   iOSLogo,
   androidLogo,
-  LogoLogin
+  LogoLogin,
+  Logo,
 };

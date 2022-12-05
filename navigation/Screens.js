@@ -1,30 +1,76 @@
 import { Animated, Dimensions, Easing } from "react-native";
-// header for screens
-import { Header, Icon } from "../components";
-import { argonTheme, tabs } from "../constants";
 
-import Articles from "../screens/Articles";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { createStackNavigator } from "@react-navigation/stack";
+
 import { Block } from "galio-framework";
-// drawer
-import CustomDrawerContent from "./Menu";
-import Elements from "../screens/Elements";
+
 // screens
-import Home from "../screens/Home";
+import Elements from "../screens/Elements";
+import Articulos from "../screens/Articles";
+import Inicio from "../screens/Home";
 import Onboarding from "../screens/Onboarding";
-import Pro from "../screens/Pro";
 import Profile from "../screens/Profile";
 import React from "react";
 import Login from "../screens/Login";
 import Register from "../screens/Register";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createDrawerNavigator } from "@react-navigation/drawer";
-import { createStackNavigator } from "@react-navigation/stack";
+//settings
+import Ajustes from "../screens/Settings";
+import AboutScreen from "../screens/About";
+// Notifications
+import PersonalNotifications from "../screens/PersonalNotifications";
+import SystemNotifications from "../screens/SystemNotifications";
+
+// drawer
+import CustomDrawerContent from "./Menu";
+
+// header for screens
+import { Header, Icon } from "../components";
+import { argonTheme, tabs } from "../constants";
 
 const { width } = Dimensions.get("screen");
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
+
+function NotificationsStack(props) {
+  return (
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color }) => {
+          let iconName;
+          if (route.name === "Personal") {
+            iconName = "user";
+          } else if (route.name === "System") {
+            iconName = "database";
+          }
+          // You can return any component that you like here!
+          return (
+            <Icon
+              name={iconName}
+              family="entypo"
+              size={22}
+              color={color}
+              style={{ marginTop: 10 }}
+            />
+          );
+        }
+      })}
+      tabBarOptions={{
+        activeTintColor: argonTheme.COLORS.PRIMARY,
+        inactiveTintColor: "gray",
+        labelStyle: {
+          fontFamily: "open-sans-regular"
+        }
+      }}
+    >
+      <Tab.Screen name="Personal" component={PersonalNotifications} />
+      <Tab.Screen name="System" component={SystemNotifications} />
+    </Tab.Navigator>
+  );
+}
 
 function ElementsStack(props) {
   return (
@@ -44,21 +90,66 @@ function ElementsStack(props) {
           cardStyle: { backgroundColor: "#F8F9FE" },
         }}
       />
+    </Stack.Navigator>
+  );
+}
+
+function SettingsStack(props) {
+  return (
+    <Stack.Navigator mode="card" headerMode="screen">
       <Stack.Screen
-        name="Pro"
-        component={Pro}
+        name="Ajustes"
+        component={Ajustes}
         options={{
           header: ({ navigation, scene }) => (
             <Header
-              title=""
+              title="Ajustes"
               back
-              white
-              transparent
-              navigation={navigation}
               scene={scene}
+              navigation={navigation} 
             />
           ),
-          headerTransparent: true,
+          cardStyle: { backgroundColor: "#F8F9FE" },
+        }}
+      />
+      <Stack.Screen
+        name="About"
+        component={AboutScreen}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header back title="About" scene={scene} navigation={navigation} />
+          ),
+          cardStyle: { backgroundColor: "#F8F9FE" }
+        }}
+      />
+      <Stack.Screen
+        name="NotificationsSettings"
+        component={NotificationsScreen}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              back
+              title="Notifications"
+              scene={scene}
+              navigation={navigation}
+            />
+          ),
+          cardStyle: { backgroundColor: "#F8F9FE" }
+        }}
+      />
+      <Stack.Screen
+        name="Notifications"
+        component={NotificationsStack}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              back
+              title="Notifications"
+              scene={scene}
+              navigation={navigation}
+            />
+          ),
+          cardStyle: { backgroundColor: "#F8F9FE" }
         }}
       />
     </Stack.Navigator>
@@ -74,30 +165,13 @@ function ArticlesStack(props) {
       }}
     >
       <Stack.Screen
-        name="Articles"
-        component={Articles}
+        name="Articulos"
+        component={Articulos}
         options={{
           header: ({ navigation, scene }) => (
-            <Header title="Articles" navigation={navigation} scene={scene} />
+            <Header title="Articulos" navigation={navigation} scene={scene} />
           ),
           cardStyle: { backgroundColor: "#F8F9FE" },
-        }}
-      />
-      <Stack.Screen
-        name="Pro"
-        component={Pro}
-        options={{
-          header: ({ navigation, scene }) => (
-            <Header
-              title=""
-              back
-              white
-              transparent
-              navigation={navigation}
-              scene={scene}
-            />
-          ),
-          headerTransparent: true,
         }}
       />
     </Stack.Navigator>
@@ -127,23 +201,6 @@ function ProfileStack(props) {
             />
           ),
           cardStyle: { backgroundColor: "#FFFFFF" },
-          headerTransparent: true,
-        }}
-      />
-      <Stack.Screen
-        name="Pro"
-        component={Pro}
-        options={{
-          header: ({ navigation, scene }) => (
-            <Header
-              title=""
-              back
-              white
-              transparent
-              navigation={navigation}
-              scene={scene}
-            />
-          ),
           headerTransparent: true,
         }}
       />
@@ -239,8 +296,8 @@ function LoginStack(props) {
       }}
     />
     <Stack.Screen
-      name="Home"
-      component={Home}
+      name="Inicio"
+      component={Inicio}
       options={{
         header: ({ navigation, scene }) => (
           <Header
@@ -284,8 +341,8 @@ function HomeStack(props) {
       }}
     >
       <Stack.Screen
-        name="Home"
-        component={Home}
+        name="Inicio"
+        component={Inicio}
         options={{
           header: ({ navigation, scene }) => (
             <Header
@@ -297,23 +354,6 @@ function HomeStack(props) {
             />
           ),
           cardStyle: { backgroundColor: "#F8F9FE" },
-        }}
-      />
-      <Stack.Screen
-        name="Pro"
-        component={Pro}
-        options={{
-          header: ({ navigation, scene }) => (
-            <Header
-              title=""
-              back
-              white
-              transparent
-              navigation={navigation}
-              scene={scene}
-            />
-          ),
-          headerTransparent: true,
         }}
       />
     </Stack.Navigator>
@@ -386,7 +426,7 @@ function AppStack(props) {
         }}
       />
       <Drawer.Screen
-        name="Home"
+        name="Inicio"
         component={HomeStack}
         options={{
           headerShown: false,
@@ -414,8 +454,15 @@ function AppStack(props) {
         }}
       />
       <Drawer.Screen
-        name="Articles"
+        name="Articulos"
         component={ArticlesStack}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Drawer.Screen
+        name="Ajustes"
+        component={Ajustes}
         options={{
           headerShown: false,
         }}

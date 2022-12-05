@@ -68,7 +68,7 @@ class Login extends React.Component {
               <Button
                 round
                 color="#172040"
-                onPress={() => navigation.navigate('Home')}
+                onPress={() => navigation.navigate('Inicio')}
               >
                 Iniciar Sesión
               </Button>

@@ -14,7 +14,7 @@ class MkSwitch extends React.Component {
         value={value}
         thumbColor={thumbColor}
         ios_backgroundColor={argonTheme.COLORS.SWITCH_OFF}
-        trackColor={{ false: argonTheme.COLORS.SWITCH_ON, true: argonTheme.COLORS.SWITCH_ON }}
+        trackColor={{ false: argonTheme.COLORS.BLUE2, true: argonTheme.COLORS.BLUE }}
         {...props}
       />
     );

@@ -23,7 +23,7 @@ export default [
   },
   {
     title: 'Celebra la navidad con increibles subasta en ShoppingFan',
-    image: 'https://www.24-horas.mx/wp-content/uploads/2020/11/Disen%CC%83o-sin-ti%CC%81tulo-9-1.png?w=800',
+    image: 'https://shoppingfan.000webhostapp.com/navidad.png',
     cta: 'Ver Artículo ', 
     horizontal: true
   },

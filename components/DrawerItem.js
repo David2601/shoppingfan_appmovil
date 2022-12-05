@@ -1,9 +1,9 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, Linking } from "react-native";
 import { Block, Text, theme } from "galio-framework";
-import Icon from 'react-native-vector-icons/Ionicons';
 
-//import Icon from "./Icon";
+import Icon from "./Icon";
+
 import argonTheme from "../constants/Theme";
 
 class DrawerItem extends React.Component {
@@ -11,26 +11,28 @@ class DrawerItem extends React.Component {
     const { title, focused } = this.props;
 
     switch (title) {
-      case "Home":
+      case "Inicio":
         return (
           <Icon
-            name="home"
+            name="shop"
+            family="ArgonExtra"
             size={14}
-            color={focused ? "white" : argonTheme.COLORS.PRIMARY}
+            color={focused ? "white" : argonTheme.COLORS.BLUE}
           />
         );
       case "Elements":
         return (
           <Icon
-            name="home"
+            name="map-big"
+            family="ArgonExtra"
             size={14}
             color={focused ? "white" : argonTheme.COLORS.ERROR}
           />
         );
-      case "Articles":
+      case "Articulos":
         return (
           <Icon
-            name="home"
+            name="spaceship"
             family="ArgonExtra"
             size={14}
             color={focused ? "white" : argonTheme.COLORS.PRIMARY}
@@ -39,7 +41,7 @@ class DrawerItem extends React.Component {
       case "Profile":
         return (
           <Icon
-            name="home"
+            name="chart-pie-35"
             family="ArgonExtra"
             size={14}
             color={focused ? "white" : argonTheme.COLORS.WARNING}
@@ -48,15 +50,25 @@ class DrawerItem extends React.Component {
       case "Account":
         return (
           <Icon
-            name="home"
+            name="switches"
             family="ArgonExtra"
             size={14}
             color={focused ? "white" : argonTheme.COLORS.INFO}
           />
         );
-      case "Getting Started":
+        case "Ajustes":
+          return (
+            <Icon
+              name="switches"
+              family="ArgonExtra"
+              size={14}
+              color={focused ? "white" : argonTheme.COLORS.INFO}
+            />
+          );
+      case "Accede a la web":
         return (<Icon
-          name="home"
+          name="support"
+          family="ArgonExtra"
           size={14}
           color={focused ? "white" : "rgba(0,0,0,0.5)"}
         />);
@@ -79,9 +91,9 @@ class DrawerItem extends React.Component {
       <TouchableOpacity
         style={{ height: 60 }}
         onPress={() =>
-          title == "Getting Started"
+          title == "Accede a la web"
             ? Linking.openURL(
-                "https://demos.creative-tim.com/argon-pro-react-native/docs/"
+                "https://shoppingfan.000webhostapp.com/"
               ).catch(err => console.error("An error occurred", err))
             : navigation.navigate(title)
         }

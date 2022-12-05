@@ -58,7 +58,8 @@ const styles = StyleSheet.create({
   cardTitle: {
     flex: 1,
     flexWrap: 'wrap',
-    paddingBottom: 6
+    paddingBottom: 6,
+    textAlign:'justify'
   },
   cardDescription: {
     padding: theme.SIZES.BASE / 2
