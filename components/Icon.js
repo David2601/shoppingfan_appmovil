@@ -6,10 +6,7 @@ import { Icon } from 'galio-framework';
 import argonConfig from '../assets/config/argon.json';
 import galioConfig from '../assets/config/galio.json';
 const ArgonExtra = require('../assets/font/argon.ttf');
-<<<<<<< HEAD
 const GalioExtra = require('../assets/font/galio.ttf');
-=======
->>>>>>> 4ae1f05 (0.3.0 agregar sensor de huella y toma de fotos | Modificación de pantallas e rutas)
 const IconArgonExtra = createIconSetFromIcoMoon( argonConfig, 'ArgonExtra');
 
 class IconExtra extends React.Component {

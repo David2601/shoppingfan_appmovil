@@ -13,11 +13,7 @@ function CustomDrawerContent({
   state,
   ...rest
 }) {
-<<<<<<< HEAD
   const screens = ["Inicio", "Profile", "Account", "Elements", "Articulos", "Ajustes"];
-=======
-  const screens = ["Inicio", "Profile", "Account", "Elements", "Articulos", "Ajustes", "Camara"];
->>>>>>> 4ae1f05 (0.3.0 agregar sensor de huella y toma de fotos | Modificación de pantallas e rutas)
   return (
     <Block
       style={styles.container}

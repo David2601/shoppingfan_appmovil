@@ -1,19 +1,18 @@
-import { navidad } from '../assets/imgs/navidad.png';
 export default [
   {
-    title: 'La subasta en la palma de tus manos',
+    title: 'Las mejores subastas en la palma de tus manos.',
     image: 'https://marketing4ecommerce.co/wp-content/uploads/2020/04/Subasta-Online-compressor.jpg',
-    cta: 'Ver Artículo', 
+    cta: 'Ver Artículo',
     horizontal: true
   },
   {
-    title: 'Is makeup one of your daily esse …',
-    image: 'https://images.unsplash.com/photo-1519368358672-25b03afee3bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2004&q=80',
+    title: 'Al realizar una subasta podra recibir una bonificación de hasta el 25%',
+    image: 'https://pbs.twimg.com/media/ExWDYIzWQAYqSp0.jpg',
     cta: 'Ver Artículo '
   },
   {
-    title: 'Coffee is more than just a drink: It’s …',
-    image: 'https://images.unsplash.com/photo-1500522144261-ea64433bbe27?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80',
+    title: 'Busca y gana tus productos deseados',
+    image: 'https://www.javiramosmarketing.com/wp-content/uploads/2015/11/buscar-en-google.jpg',
     cta: 'Ver Artículo ' 
   },
   {
@@ -22,7 +21,7 @@ export default [
     cta: 'Ver Artículo ' 
   },
   {
-    title: 'Celebra la navidad con increibles subasta en ShoppingFan',
+    title: 'Celebra la navidad con increibles subastas de productos de temporada en ShoppingFan',
     image: 'https://shoppingfan.000webhostapp.com/navidad.png',
     cta: 'Ver Artículo ', 
     horizontal: true
