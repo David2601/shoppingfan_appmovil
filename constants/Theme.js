@@ -13,7 +13,11 @@ export default {
     INPUT: '#DCDCDC',
     INPUT_SUCCESS: '#7BDEB2',
     INPUT_ERROR: '#FCB3A4',
+<<<<<<< HEAD
     ACTIVE: '#5E72E4', //same as primary
+=======
+    ACTIVE: '#018ABE', //same as primary
+>>>>>>> 4ae1f05 (0.3.0 agregar sensor de huella y toma de fotos | Modificación de pantallas e rutas)
     BUTTON_COLOR: '#9C26B0',
     PLACEHOLDER: '#9FA5AA',
     SWITCH_ON: '#5E72E4',

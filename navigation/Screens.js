@@ -13,8 +13,14 @@ import Inicio from "../screens/Home";
 import Onboarding from "../screens/Onboarding";
 import Profile from "../screens/Profile";
 import React from "react";
+<<<<<<< HEAD
 import Login from "../screens/Login";
 import Register from "../screens/Register";
+=======
+import Login from "../screens/Login2";
+import Register from "../screens/Register2";
+import Camara from "../screens/Camera";
+>>>>>>> 4ae1f05 (0.3.0 agregar sensor de huella y toma de fotos | Modificación de pantallas e rutas)
 //settings
 import Ajustes from "../screens/Settings";
 import AboutScreen from "../screens/About";
@@ -208,6 +214,54 @@ function ProfileStack(props) {
   );
 }
 
+<<<<<<< HEAD
+=======
+function CameraStack(props) {
+  return(
+    <Stack.Navigator
+      screenOptions={{
+        mode: "card",
+        headerShown: "screen"
+      }}
+    >
+    <Stack.Screen
+      name="Camara"
+      component={Camara}
+      options={{
+        header: ({ navigation, scene }) => (
+          <Header
+            title=""
+            back
+            blue
+            transparent
+            navigation={navigation}
+            scene={scene}
+          />
+        ),
+        headerTransparent: true,
+      }}
+    />
+    <Stack.Screen
+      name="Inicio"
+      component={Inicio}
+      options={{
+        header: ({ navigation, scene }) => (
+          <Header
+            title="ShoppingFan"
+            search
+            options
+            navigation={navigation}
+            scene={scene}
+          />
+        ),
+        cardStyle: { backgroundColor: "#F8F9FE" },
+      }}
+    />
+    </Stack.Navigator>
+  );
+}
+
+>>>>>>> 4ae1f05 (0.3.0 agregar sensor de huella y toma de fotos | Modificación de pantallas e rutas)
 function RegisterStack(props) {
   return(
     <Stack.Navigator
@@ -286,7 +340,11 @@ function LoginStack(props) {
           <Header
             title=""
             back
+<<<<<<< HEAD
             white
+=======
+            blue
+>>>>>>> 4ae1f05 (0.3.0 agregar sensor de huella y toma de fotos | Modificación de pantallas e rutas)
             transparent
             navigation={navigation}
             scene={scene}
@@ -428,6 +486,13 @@ function AppStack(props) {
       <Drawer.Screen
         name="Inicio"
         component={HomeStack}
+        options={{
+          headerShown: false,
+        }}
+      />
+        <Drawer.Screen
+        name="Camara"
+        component={CameraStack}
         options={{
           headerShown: false,
         }}

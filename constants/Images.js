@@ -7,6 +7,10 @@ const ShoppingLogo = require("../assets/imgs/shopping_icon.png");
 const iOSLogo = require("../assets/imgs/shopping_icon.png");
 const androidLogo = require("../assets/imgs/shopping_icon.png");
 const LogoLogin = require("../assets/imgs/shopping_icon.png");
+<<<<<<< HEAD
+=======
+const RegisterBackground = require("../assets/imgs/back_login.jpg");
+>>>>>>> 4ae1f05 (0.3.0 agregar sensor de huella y toma de fotos | Modificación de pantallas e rutas)
 
 // internet imgs
 
@@ -37,4 +41,8 @@ export default {
   androidLogo,
   LogoLogin,
   Logo,
+<<<<<<< HEAD
+=======
+  RegisterBackground,
+>>>>>>> 4ae1f05 (0.3.0 agregar sensor de huella y toma de fotos | Modificación de pantallas e rutas)
 };

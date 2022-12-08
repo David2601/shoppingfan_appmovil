@@ -20,6 +20,9 @@
     "ios": {
       "supportsTablet": true
     },
+    "android": {
+
+    },
     "web": {
       "favicon": "./assets/imgs/shopping_icon.png"
     }

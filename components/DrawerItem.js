@@ -41,7 +41,11 @@ class DrawerItem extends React.Component {
       case "Profile":
         return (
           <Icon
+<<<<<<< HEAD
             name="chart-pie-35"
+=======
+            name="ungroup"
+>>>>>>> 4ae1f05 (0.3.0 agregar sensor de huella y toma de fotos | Modificación de pantallas e rutas)
             family="ArgonExtra"
             size={14}
             color={focused ? "white" : argonTheme.COLORS.WARNING}
@@ -65,6 +69,18 @@ class DrawerItem extends React.Component {
               color={focused ? "white" : argonTheme.COLORS.INFO}
             />
           );
+<<<<<<< HEAD
+=======
+          case "Camara":
+            return (
+              <Icon
+                name="switches"
+                family="ArgonExtra"
+                size={14}
+                color={focused ? "white" : argonTheme.COLORS.INFO}
+              />
+            );
+>>>>>>> 4ae1f05 (0.3.0 agregar sensor de huella y toma de fotos | Modificación de pantallas e rutas)
       case "Accede a la web":
         return (<Icon
           name="support"
